@@ -105,8 +105,9 @@
             margin-top: 30px;
             display: none;
             width: 100%;
-            height: 150px;
+            height: 180px;
             border: none;
+            border-radius: 8px;
         }
         .features {
             display: grid;
@@ -146,11 +147,11 @@
 
     <div class="container">
         <div class="converter-box">
-            <h2>YouTube Video URL टाका</h2>
+            <h2>YouTube Video / Shorts URL टाका</h2>
             <p class="subtitle">काही सेकंदात हाय-क्वालिटी MP3 किंवा MP4 मध्ये कन्व्हर्ट करा</p>
             
             <div class="input-group">
-                <input type="text" id="videoLink" placeholder="उदा. https://www.youtube.com/watch?v=...">
+                <input type="text" id="videoLink" placeholder="उदा. https://youtube.com/shorts/... किंवा https://youtu.be/...">
             </div>
 
             <div class="format-options">
@@ -160,14 +161,14 @@
 
             <button class="btn-convert" onclick="startConversion()">Convert & Download</button>
 
-            <!-- हा आपला ओरिजिनल फ्री डाऊनलोड सिस्टीम API आहे -->
+            <!-- सुपरफास्ट डाऊनलोड API विजेट -->
             <iframe id="downloadWidget" class="iframe-container" src=""></iframe>
         </div>
 
         <div class="features">
             <div class="feature-card">
                 <h3>⚡ सुपर फास्ट</h3>
-                <p>कोणताही वेळ न घालवता सेकंदांच्या आत तुमची फाईल डाऊनलोडसाठी तयार होते.</p>
+                <p>नवीन हाय-स्पीड सर्व्हर सिस्टीममुळे शॉर्ट्स आणि व्हिडिओ झटक्यात डाऊनलोड होतात.</p>
             </div>
             <div class="feature-card">
                 <h3>🛡️ सुरक्षित</h3>
@@ -186,37 +187,42 @@
 
     <script>
         function startConversion() {
-            var url = document.getElementById('videoLink').value;
+            var url = document.getElementById('videoLink').value.trim();
             var format = document.querySelector('input[name="format"]:checked').value;
             var widget = document.getElementById('downloadWidget');
 
-            if(url.trim() === "") {
+            if(url === "") {
                 alert("सोनू भाऊ, आधी युट्यूब व्हिडिओची लिंक तर टाका! 😅");
                 return;
             }
 
-            // युट्यूब लिंक आयडी एक्सट्रॅक्ट करणे
             var videoId = "";
-            var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-            var match = url.match(regExp);
             
-            if (match && match[2].length == 11) {
-                videoId = match[2];
-            } else {
-                alert("कृपया योग्य युट्यूब व्हिडिओ लिंक टाका भाऊ! 🙏");
-                return;
+            // सर्व प्रकारच्या युट्यूब लिंक्स (Shorts, Mobile, Web) मधून आयडी शोधण्याचे सुपरफास्ट लॉजिक
+            if (url.includes("shorts/")) {
+                videoId = url.split("shorts/")[1].split(/[?#&]/)[0];
+            } else if (url.includes("youtu.be/")) {
+                videoId = url.split("youtu.be/")[1].split(/[?#&]/)[0];
+            } else if (url.includes("v=")) {
+                videoId = url.split("v=")[1].split(/[?#&]/)[0];
+            } else if (url.includes("embed/")) {
+                videoId = url.split("embed/")[1].split(/[?#&]/)[0];
             }
 
-            // ओरिजिनल फ्री कन्व्हर्टर सर्व्हर सिंकिंग (API Widget)
-            var apiSrc = "";
-            if(format === "mp3") {
-                apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp3&bg=1f1f1f&txt=ffffff&btn=ff4757";
-            } else {
-                apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp4&bg=1f1f1f&txt=ffffff&btn=ff4757";
-            }
+            if (videoId && videoId.length === 11) {
+                // हाय-स्पीड लोड होणारा फ्री कन्व्हर्टर सर्व्हर
+                var apiSrc = "";
+                if(format === "mp3") {
+                    apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp3&bg=1f1f1f&txt=ffffff&btn=ff4757";
+                } else {
+                    apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp4&bg=1f1f1f&txt=ffffff&btn=ff4757";
+                }
 
-            widget.src = apiSrc;
-            widget.style.display = "block";
+                widget.src = apiSrc;
+                widget.style.display = "block";
+            } else {
+                alert("कृपया योग्य युट्यूब लिंक टाका सोनू भाऊ! 🙏");
+            }
         }
     </script>
 </body>
