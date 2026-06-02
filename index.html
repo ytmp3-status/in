@@ -5,144 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YTMP3 Pro - Free YouTube to MP3 & MP4 Converter</title>
     <style>
-        :root {
-            --primary-color: #ff4757;
-            --bg-color: #0f0f0f;
-            --card-bg: #1f1f1f;
-            --text-color: #ffffff;
-        }
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        header {
-            background-color: var(--card-bg);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--primary-color);
-        }
-        header h1 {
-            margin: 0;
-            font-size: 28px;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            text-align: center;
-            flex: 1;
-        }
-        .converter-box {
-            background-color: var(--card-bg);
-            padding: 40px 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-        }
-        p.subtitle {
-            color: #aaa;
-            font-size: 16px;
-            margin-bottom: 30px;
-        }
-        .input-group {
-            display: flex;
-            margin-bottom: 20px;
-            gap: 10px;
-        }
-        input[type="text"] {
-            flex: 1;
-            padding: 15px;
-            border: 2px solid #333;
-            border-radius: 8px;
-            background-color: #111;
-            color: #fff;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-        input[type="text"]:focus {
-            border-color: var(--primary-color);
-        }
-        .format-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        .format-options label {
-            font-size: 16px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .btn-convert {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.2s, transform 0.1s;
-        }
-        .btn-convert:hover {
-            background-color: #ff6b81;
-        }
-        .btn-convert:active {
-            transform: scale(0.98);
-        }
-        .iframe-container {
-            margin-top: 30px;
-            display: none;
-            width: 100%;
-            height: 180px;
-            border: none;
-            border-radius: 8px;
-        }
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 50px;
-        }
-        .feature-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-        }
-        .feature-card p {
-            color: #bbb;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-        footer {
-            background: #0a0a0a;
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #222;
-        }
+        :root { --primary-color: #ff4757; --bg-color: #0f0f0f; --card-bg: #1f1f1f; --text-color: #ffffff; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
+        header { background-color: var(--card-bg); padding: 20px; text-align: center; border-bottom: 2px solid var(--primary-color); }
+        header h1 { margin: 0; font-size: 28px; color: var(--primary-color); }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; text-align: center; flex: 1; }
+        .converter-box { background-color: var(--card-bg); padding: 40px 30px; border-radius: 12px; }
+        p.subtitle { color: #aaa; font-size: 16px; margin-bottom: 30px; }
+        input[type="text"] { width: 90%; padding: 15px; border: 2px solid #333; border-radius: 8px; background-color: #111; color: #fff; font-size: 16px; outline: none; margin-bottom: 20px; }
+        .format-options { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
+        .btn-convert { background-color: var(--primary-color); color: white; border: none; padding: 15px 40px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; }
+        .iframe-container { margin-top: 30px; display: none; width: 100%; height: 180px; border: none; border-radius: 8px; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>YTMP3 Pro</h1>
+        <h1>YTMP3 Pro (Superfast V2)</h1>
     </header>
 
     <div class="container">
@@ -150,9 +29,7 @@
             <h2>YouTube Video / Shorts URL टाका</h2>
             <p class="subtitle">काही सेकंदात हाय-क्वालिटी MP3 किंवा MP4 मध्ये कन्व्हर्ट करा</p>
             
-            <div class="input-group">
-                <input type="text" id="videoLink" placeholder="उदा. https://youtube.com/shorts/... किंवा https://youtu.be/...">
-            </div>
+            <input type="text" id="videoLink" placeholder="युट्यूब किंवा शॉर्ट्स लिंक इथे पेस्ट करा...">
 
             <div class="format-options">
                 <label><input type="radio" name="format" value="mp3" checked> 🎵 MP3 (Audio)</label>
@@ -161,29 +38,9 @@
 
             <button class="btn-convert" onclick="startConversion()">Convert & Download</button>
 
-            <!-- सुपरफास्ट डाऊनलोड API विजेट -->
             <iframe id="downloadWidget" class="iframe-container" src=""></iframe>
         </div>
-
-        <div class="features">
-            <div class="feature-card">
-                <h3>⚡ सुपर फास्ट</h3>
-                <p>नवीन हाय-स्पीड सर्व्हर सिस्टीममुळे शॉर्ट्स आणि व्हिडिओ झटक्यात डाऊनलोड होतात.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🛡️ सुरक्षित</h3>
-                <p>कोणतेही पॉप-अप ॲड्स किंवा व्हायरस नाही. शंभर टक्के सेफ कन्व्हर्टर.</p>
-            </div>
-            <div class="feature-card">
-                <h3>🎧 बेस्ट क्वालिटी</h3>
-                <p>320kbps पर्यंत ऑडिओ आणि 1080p पर्यंत व्हिडिओ क्वालिटीला सपोर्ट.</p>
-            </div>
-        </div>
     </div>
-
-    <footer>
-        &copy; 2026 YTMP3 Pro. All rights reserved.
-    </footer>
 
     <script>
         function startConversion() {
@@ -192,36 +49,40 @@
             var widget = document.getElementById('downloadWidget');
 
             if(url === "") {
-                alert("सोनू भाऊ, आधी युट्यूब व्हिडिओची लिंक तर टाका! 😅");
+                alert("सोनू भाऊ, लिंक रिकामी आहे! 😅");
                 return;
             }
 
             var videoId = "";
             
-            // सर्व प्रकारच्या युट्यूब लिंक्स (Shorts, Mobile, Web) मधून आयडी शोधण्याचे सुपरफास्ट लॉजिक
+            // सुधारित आणि व्हेरीफाईड लॉजिक
             if (url.includes("shorts/")) {
-                videoId = url.split("shorts/")[1].split(/[?#&]/)[0];
+                var parts = url.split("shorts/");
+                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
             } else if (url.includes("youtu.be/")) {
-                videoId = url.split("youtu.be/")[1].split(/[?#&]/)[0];
+                var parts = url.split("youtu.be/");
+                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
             } else if (url.includes("v=")) {
-                videoId = url.split("v=")[1].split(/[?#&]/)[0];
+                var parts = url.split("v=");
+                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
             } else if (url.includes("embed/")) {
-                videoId = url.split("embed/")[1].split(/[?#&]/)[0];
+                var parts = url.split("embed/");
+                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
             }
 
+            // फायनल चेकिंग
             if (videoId && videoId.length === 11) {
-                // हाय-स्पीड लोड होणारा फ्री कन्व्हर्टर सर्व्हर
                 var apiSrc = "";
                 if(format === "mp3") {
                     apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp3&bg=1f1f1f&txt=ffffff&btn=ff4757";
                 } else {
                     apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp4&bg=1f1f1f&txt=ffffff&btn=ff4757";
                 }
-
                 widget.src = apiSrc;
                 widget.style.display = "block";
             } else {
-                alert("कृपया योग्य युट्यूब लिंक टाका सोनू भाऊ! 🙏");
+                // या मेसेजवरून समजेल की सिस्टीम नवीन कोड वाचत आहे
+                alert("नवीन सिस्टीम चालू आहे, पण तुमच्या लिंकमधील 'Video ID' चुकीचा वाटत आहे! आयडी: " + videoId);
             }
         }
     </script>
