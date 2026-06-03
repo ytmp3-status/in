@@ -3,88 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTMP3 Pro - Free YouTube to MP3 & MP4 Converter</title>
+    <title>⚡ Status Hub & VIP Bio - Fast & Minimal</title>
     <style>
-        :root { --primary-color: #ff4757; --bg-color: #0f0f0f; --card-bg: #1f1f1f; --text-color: #ffffff; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: sans-serif; margin: 0; padding: 0; display: flex; flex-direction: column; min-height: 100vh; }
-        header { background-color: var(--card-bg); padding: 20px; text-align: center; border-bottom: 2px solid var(--primary-color); }
-        header h1 { margin: 0; font-size: 28px; color: var(--primary-color); }
-        .container { max-width: 800px; margin: 40px auto; padding: 20px; text-align: center; flex: 1; }
-        .converter-box { background-color: var(--card-bg); padding: 40px 30px; border-radius: 12px; }
-        p.subtitle { color: #aaa; font-size: 16px; margin-bottom: 30px; }
-        input[type="text"] { width: 90%; padding: 15px; border: 2px solid #333; border-radius: 8px; background-color: #111; color: #fff; font-size: 16px; outline: none; margin-bottom: 20px; }
-        .format-options { display: flex; justify-content: center; gap: 20px; margin-bottom: 25px; }
-        .btn-convert { background-color: var(--primary-color); color: white; border: none; padding: 15px 40px; font-size: 18px; font-weight: bold; border-radius: 8px; cursor: pointer; width: 100%; }
-        .iframe-container { margin-top: 30px; display: none; width: 100%; height: 180px; border: none; border-radius: 8px; }
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: #131a26;
+            --primary-color: #3b82f6;
+            --accent-color: #10b981;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Minimal Header like yt2mp3.ai */
+        header {
+            text-align: center;
+            margin: 30px 0 20px 0;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Navigation / Tabs */
+        .tabs-nav {
+            display: flex;
+            background-color: var(--card-bg);
+            padding: 4px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #1e293b;
+        }
+
+        .tab-link {
+            flex: 1;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            padding: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .tab-link.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* Content Boxes */
+        .content-section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #1e293b;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-heading {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .item-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .item-card {
+            background-color: #1e293b;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #334155;
+        }
+
+        .item-text {
+            flex: 1;
+            padding-right: 15px;
+            word-break: break-word;
+            line-height: 1.5;
+        }
+
+        .action-btn {
+            background-color: #334155;
+            color: #f8fafc;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .action-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* Ad Placement */
+        .ad-container {
+            background-color: var(--card-bg);
+            border: 1px dashed #334155;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>YTMP3 Pro (Superfast V2)</h1>
-    </header>
+    <div class="wrapper">
+        <header>
+            <h1>👑 Status Hub</h1>
+            <p>VIP Symbols & High-Volume Trending Captions</p>
+        </header>
 
-    <div class="container">
-        <div class="converter-box">
-            <h2>YouTube Video / Shorts URL टाका</h2>
-            <p class="subtitle">काही सेकंदात हाय-क्वालिटी MP3 किंवा MP4 मध्ये कन्व्हर्ट करा</p>
-            
-            <input type="text" id="videoLink" placeholder="युट्यूब किंवा शॉर्ट्स लिंक इथे पेस्ट करा...">
-
-            <div class="format-options">
-                <label><input type="radio" name="format" value="mp3" checked> 🎵 MP3 (Audio)</label>
-                <label><input type="radio" name="format" value="mp4"> 🎥 MP4 (Video)</label>
-            </div>
-
-            <button class="btn-convert" onclick="startConversion()">Convert & Download</button>
-
-            <iframe id="downloadWidget" class="iframe-container" src=""></iframe>
+        <!-- Language Switcher Box -->
+        <div class="tabs-nav">
+            <button class="tab-link active" onclick="changeLanguage('mr')">मराठी</button>
+            <button class="tab-link" onclick="changeLanguage('bh')">बंजारा</button>
+            <button class="tab-link" onclick="changeLanguage('hi')">हिंदी</button>
+            <button class="tab-link" onclick="changeLanguage('en')">English</button>
         </div>
+
+        <!-- VIP SYMBOLS BLOCK -->
+        <div class="content-section" style="margin-bottom: 20px;">
+            <div class="section-heading">💎 Premium VIP Bio Symbols</div>
+            <div class="item-list">
+                <div class="item-card"><div class="item-text">◢◣◥◤ 👑 VIP ACCOUNT 👑 ◥◤◢◣</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
+                <div class="item-card"><div class="item-text">☠️ Badmashi Bio: 🩸Khatra_On_18_May ☠️</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
+                <div class="item-card"><div class="item-text">🔱 महाकाल भक्त 🔱 | 👑 Attitude King 😎</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
+            </div>
+        </div>
+
+        <!-- Ad Space for Adsterra -->
+        <div class="ad-container">
+            ADVERTISEMENT NETWORKS (Adsterra Code Field)
+        </div>
+
+        <!-- TRENDING CAPTIONS BLOCK -->
+        <div class="content-section">
+            <div class="section-heading">🎬 Trending Status Video Captions</div>
+            <div class="item-list" id="captions-grid">
+                <!-- Content injected here -->
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 Status Hub Pro | Designed Clean & Fast Like AI Tools
+        </footer>
     </div>
 
     <script>
-        function startConversion() {
-            var url = document.getElementById('videoLink').value.trim();
-            var format = document.querySelector('input[name="format"]:checked').value;
-            var widget = document.getElementById('downloadWidget');
+        const contentData = {
+            mr: [
+                "🔥 नाव गाजवायला वेळ लागतो, पण जेव्हा गाजतं ना तेव्हा विषयच क्लोज होतो!",
+                "😎 आपली जगण्याची पद्धत जरा वेगळी आहे, आम्ही नशिबावर नाही तर स्वतःवर विश्वास ठेवतो.",
+                "❤️ प्रेम तर सगळ्यांवरच होतं, पण तुझ्यावर झालेलं प्रेम काहीतरी वेगळंच आहे.",
+                "🦅 राजा सारखं जगायचं असेल तर आधी गुलामासारखी मेहनत करावी लागते!",
+                "💯 गर्दीत उभा राहणे हे माझे ध्येय नाही, तर ज्याच्यासाठी गर्दी उभी राहील तो मला व्हायचंय."
+            ],
+            bh: [
+                "📿 सेवालाल महाराज की जय! गोर बंजारा भाई तमारो रुबाब कडक छे.",
+                "🦅 आपण कोनी मालमत्ता कोनी, आपली बंजारा संस्कृती आपली शान छे!",
+                "🎵 बंजारा बीट्स वर गाणं वाजल की पाय थांबत कोनी भाऊ.",
+                "👑 गोर माटी री बोली, जग मा कती गोड लागे रे भाई!",
+                "🔥 आपण बंजारा छा, आपला रुबाब देखण दुनिया थर-थर कापे छे."
+            ],
+            hi: [
+                "🔥 हुकूमत वो नहीं जो डरा कर की जाए, हुकूमत वो है जो दिलों पर राज करे।",
+                "😎 हमारी शराफत का फायदा उठाना बंद कर दो, जिस दिन हम बदमाश हो गए कयामत आ जाएगी।",
+                "🦁 शेर अपना शिकार खुद करता है और हम अपना मुकाम खुद बनाते हैं।",
+                "🎲 वक्त वक्त की बात है भाऊ, आज आपका है उड़ लीजिए, कल हमारा आएगा तो सीधा उड़ा देंगे!",
+                "🤫 हम खामोश क्या हुए, पूरी दुनिया ने शोर मचा दिया।"
+            ],
+            en: [
+                "👑 Born to Rule, Not to Follow. Keeping it simple and classy.",
+                "⚡ Silence is the best response to a fool. Watch my success speak.",
+                "🎯 Focused on my goals, my vibe speaks louder than words.",
+                "🦁 Better to be a lonely lion than a popular sheep.",
+                "🔥 Your attitude dictates your growth. Keep it high profile."
+            ]
+        };
 
-            if(url === "") {
-                alert("सोनू भाऊ, लिंक रिकामी आहे! 😅");
-                return;
-            }
-
-            var videoId = "";
-            
-            // सुधारित आणि व्हेरीफाईड लॉजिक
-            if (url.includes("shorts/")) {
-                var parts = url.split("shorts/");
-                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
-            } else if (url.includes("youtu.be/")) {
-                var parts = url.split("youtu.be/");
-                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
-            } else if (url.includes("v=")) {
-                var parts = url.split("v=");
-                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
-            } else if (url.includes("embed/")) {
-                var parts = url.split("embed/");
-                if(parts[1]) { videoId = parts[1].split(/[?#&]/)[0]; }
-            }
-
-            // फायनल चेकिंग
-            if (videoId && videoId.length === 11) {
-                var apiSrc = "";
-                if(format === "mp3") {
-                    apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp3&bg=1f1f1f&txt=ffffff&btn=ff4757";
-                } else {
-                    apiSrc = "https://images.ytmp3.nu/widget/button/?id=" + videoId + "&f=mp4&bg=1f1f1f&txt=ffffff&btn=ff4757";
+        function changeLanguage(langCode) {
+            // Manage Active Button States
+            const links = document.querySelectorAll('.tab-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+                if(link.innerText.toLowerCase().includes(langCode === 'mr' ? 'मराठी' : langCode === 'bh' ? 'बंजारा' : langCode === 'hi' ? 'हिंदी' : 'english')) {
+                    link.classList.add('active');
                 }
-                widget.src = apiSrc;
-                widget.style.display = "block";
-            } else {
-                // या मेसेजवरून समजेल की सिस्टीम नवीन कोड वाचत आहे
-                alert("नवीन सिस्टीम चालू आहे, पण तुमच्या लिंकमधील 'Video ID' चुकीचा वाटत आहे! आयडी: " + videoId);
-            }
+            });
+
+            // Re-render Captions Box
+            const grid = document.getElementById('captions-grid');
+            grid.innerHTML = '';
+            
+            contentData[langCode].forEach(captionText => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `<div class="item-text">${captionText}</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button>`;
+                grid.appendChild(card);
+            });
         }
+
+        function triggerCopy(btnElement) {
+            const textToCopy = btnElement.parentElement.querySelector('.item-text').innerText;
+            navigator.clipboard.writeText(textToCopy);
+            
+            const prevLabel = btnElement.innerText;
+            btnElement.innerText = "Copied! ✓";
+            btnElement.style.backgroundColor = var(--accent-color);
+            
+            setTimeout(() => {
+                btnElement.innerText = prevLabel;
+                btnElement.style.backgroundColor = "#334155";
+            }, 1200);
+        }
+
+        // Initialize Default View
+        changeLanguage('mr');
     </script>
 </body>
 </html>
