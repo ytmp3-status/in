@@ -45,14 +45,12 @@
         
         /* Adsterra Top Slot */
         .ad-slot-top {
-            background-color: rgba(255, 255, 255, 0.05);
-            min-height: 90px;
             margin: 15px 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px dashed var(--royal-gold);
             border-radius: 8px;
+            overflow: hidden;
         }
 
         /* Status Section */
@@ -101,13 +99,9 @@
 
         /* Adsterra Bottom Slot */
         .ad-slot-bottom {
-            background-color: rgba(255, 255, 255, 0.05);
-            min-height: 250px;
             margin: 30px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--primary-red);
+            display: block;
+            text-align: center;
             border-radius: 8px;
         }
         
@@ -130,13 +124,18 @@
 
     <div class="container">
 
-        <!-- 💥 ADSTERRA TOP AD SLOT (Banner 728x90 or 468x60) -->
+        <!-- 💥 १. ADSTERRA TOP AD SLOT (468x60 Banner) -->
         <div class="ad-slot-top">
-            <!-- खाली तुझा Adsterra चा कोड पेस्ट कर -->
-            <div id="adsterra_top_placeholder" style="color: var(--text-gray); font-size: 12px;">
-                📢 Advertisement Slot (Adsterra Code इथे टाका)
-                <!-- <script type="text/javascript"> ... तुझा कोड ... </script> -->
-            </div>
+            <script>
+                atOptions = {
+                    'key' : '2cfbc57dde67eb2c30b369ea8831b0d8',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://www.highperformanceformat.com/2cfbc57dde67eb2c30b369ea8831b0d8/invoke.js"></script>
         </div>
 
         <!-- स्टेटस आणि बायो सेक्शन्स -->
@@ -147,7 +146,7 @@
                 <button class="btn-copy" onclick="copyStatus(this)">Copy Bio 📋</button>
             </div>
             <div class="status-card">
-                <div class="status-text">亗 『KING』 亗<br>☠️ 𝙉𝙖ਦ 𝙉𝙖𝙠𝙤 𝙆𝙖𝙧𝙪 𝙈𝙖𝙯𝙖 ☠️<br>🦁 𝙎𝙞𝙡𝙚𝙣𝙩 𝙀𝙮𝙚𝙨, 𝙎𝙝𝙖𝙧𝙥 𝙈𝙞𝙣𝙙 ⚡<br>👑 विषय एंड ⏳</div>
+                <div class="status-text">亗 『KING』 亗<br>☠️ 𝙉𝙖ਦ 𝙉𝙖𝙠𝙤 𝙆𝙖𝙧𝙪 𝙈𝙖𝙯𝙖 ☠️<br>🦁 𝙎𝙞隔𝙚𝙣𝙩 𝙀𝙮𝙚𝙨, 𝙎𝙝𝙖𝙧𝙥 𝙈𝙞𝙣𝙙 ⚡<br>👑 विषय एंड ⏳</div>
                 <button class="btn-copy" onclick="copyStatus(this)">Copy Bio 📋</button>
             </div>
         </div>
@@ -168,14 +167,11 @@
             </div>
         </div>
 
-        <!-- 💥 ADSTERRA BOTTOM AD SLOT (Banner 300x250 or Native Banner) -->
+        <!-- 💥 २. ADSTERRA BOTTOM AD SLOT (Native Banner) -->
         <div class="section-title">📢 Sponsored Links</div>
         <div class="ad-slot-bottom">
-            <!-- खाली तुझा दुसरा Adsterra चा कोड पेस्ट कर -->
-            <div id="adsterra_bottom_placeholder" style="color: var(--text-gray); font-size: 12px;">
-                📢 Adsterra Native/Square Banner (इथे कोड टाका)
-                <!-- <script type="text/javascript"> ... तुझा कोड ... </script> -->
-            </div>
+            <script async="async" data-cfasync="false" src="https://pl29599599.effectivecpmnetwork.com/7d1430dba01fc6157884d2ca85726179/invoke.js"></script>
+            <div id="container-7d1430dba01fc6157884d2ca85726179"></div>
         </div>
 
     </div>
@@ -190,7 +186,6 @@
             var card = button.parentElement;
             var text = card.querySelector('.status-text').innerHTML.replace(/<br\s*\/?>/mg, "\n");
             
-            // तात्पुरते टेक्स्टएरिया बनवून कॉपी करणे
             var tempInput = document.createElement("textarea");
             tempInput.value = text;
             document.body.appendChild(tempInput);
@@ -198,7 +193,6 @@
             document.execCommand("copy");
             document.body.removeChild(tempInput);
 
-            // बटनचा लुक बदलणे
             var originalText = button.innerText;
             button.innerText = "Copied! ✔️";
             button.style.backgroundColor = "#28a745";
