@@ -3,281 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚡ Status Hub & VIP Bio - Fast & Minimal</title>
+    <title>Banjara Beats & Bollywood Status Hub</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --card-bg: #131a26;
-            --primary-color: #3b82f6;
-            --accent-color: #10b981;
-            --text-main: #ffffff;
-            --text-muted: #94a3b8;
+            --primary-red: #ff3e3e;
+            --royal-gold: #ffd700;
+            --bg-dark: #0f0f15;
+            --card-bg: #1f1f2e;
+            --text-light: #ffffff;
+            --text-gray: #aaaaaa;
         }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
+            text-align: center;
         }
-
-        .wrapper {
-            width: 100%;
-            max-width: 550px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        /* Minimal Header like yt2mp3.ai */
         header {
-            text-align: center;
-            margin: 30px 0 20px 0;
+            background: linear-gradient(45deg, #ff3e3e, #800080);
+            padding: 30px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-
         header h1 {
-            font-size: 32px;
-            font-weight: 800;
             margin: 0;
-            background: linear-gradient(to right, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-size: 28px;
+            color: var(--royal-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
-
         header p {
-            color: var(--text-muted);
+            margin: 5px 0 0 0;
             font-size: 14px;
-            margin-top: 5px;
+            color: #ddd;
         }
-
-        /* Navigation / Tabs */
-        .tabs-nav {
-            display: flex;
-            background-color: var(--card-bg);
-            padding: 4px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 1px solid #1e293b;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
-
-        .tab-link {
-            flex: 1;
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            padding: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-        }
-
-        .tab-link.active {
-            background-color: var(--primary-color);
-            color: #fff;
-        }
-
-        /* Content Boxes */
-        .content-section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid #1e293b;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-heading {
-            font-size: 16px;
-            font-weight: 600;
-            color: #f8fafc;
-            margin-top: 0;
-            margin-bottom: 15px;
+        
+        /* Adsterra Top Slot */
+        .ad-slot-top {
+            background-color: rgba(255, 255, 255, 0.05);
+            min-height: 90px;
+            margin: 15px 0;
             display: flex;
             align-items: center;
-            gap: 6px;
-        }
-
-        .item-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .item-card {
-            background-color: #1e293b;
-            padding: 14px;
+            justify-content: center;
+            border: 1px dashed var(--royal-gold);
             border-radius: 8px;
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #334155;
         }
 
-        .item-text {
-            flex: 1;
-            padding-right: 15px;
-            word-break: break-word;
-            line-height: 1.5;
-        }
-
-        .action-btn {
-            background-color: #334155;
-            color: #f8fafc;
-            border: none;
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .action-btn:hover {
-            background-color: var(--primary-color);
-        }
-
-        /* Ad Placement */
-        .ad-container {
-            background-color: var(--card-bg);
-            border: 1px dashed #334155;
-            border-radius: 12px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        footer {
-            text-align: center;
+        /* Status Section */
+        .section-title {
+            text-align: left;
+            font-size: 20px;
+            color: var(--royal-gold);
             margin-top: 30px;
-            font-size: 12px;
-            color: var(--text-muted);
+            border-left: 4px solid var(--primary-red);
+            padding-left: 10px;
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .status-card {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 1px solid #2f2f45;
+        }
+        .status-text {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            color: #f0f0f0;
+        }
+        .btn-copy {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            float: right;
+            transition: background 0.2s;
+        }
+        .btn-copy:hover { background-color: #cc2929; }
+
+        /* Adsterra Bottom Slot */
+        .ad-slot-bottom {
+            background-color: rgba(255, 255, 255, 0.05);
+            min-height: 250px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--primary-red);
+            border-radius: 8px;
+        }
+        
+        footer {
+            margin-top: 5px;
+            padding: 20px;
+            color: var(--text-gray);
+            font-size: 13px;
+            background-color: #0b0b10;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <header>
-            <h1>👑 Status Hub</h1>
-            <p>VIP Symbols & High-Volume Trending Captions</p>
-        </header>
+    <!-- हेडर भाग -->
+    <header>
+        <h1>🔥 Banjara Beats & King Status Hub 👑</h1>
+        <p>युट्युब शॉर्ट्स, रील्स आणि बायोसाठी कडक सिम्बॉल्स आणि स्टेटस!</p>
+    </header>
 
-        <!-- Language Switcher Box -->
-        <div class="tabs-nav">
-            <button class="tab-link active" onclick="changeLanguage('mr')">मराठी</button>
-            <button class="tab-link" onclick="changeLanguage('bh')">बंजारा</button>
-            <button class="tab-link" onclick="changeLanguage('hi')">हिंदी</button>
-            <button class="tab-link" onclick="changeLanguage('en')">English</button>
-        </div>
+    <div class="container">
 
-        <!-- VIP SYMBOLS BLOCK -->
-        <div class="content-section" style="margin-bottom: 20px;">
-            <div class="section-heading">💎 Premium VIP Bio Symbols</div>
-            <div class="item-list">
-                <div class="item-card"><div class="item-text">◢◣◥◤ 👑 VIP ACCOUNT 👑 ◥◤◢◣</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
-                <div class="item-card"><div class="item-text">☠️ Badmashi Bio: 🩸Khatra_On_18_May ☠️</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
-                <div class="item-card"><div class="item-text">🔱 महाकाल भक्त 🔱 | 👑 Attitude King 😎</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button></div>
+        <!-- 💥 ADSTERRA TOP AD SLOT (Banner 728x90 or 468x60) -->
+        <div class="ad-slot-top">
+            <!-- खाली तुझा Adsterra चा कोड पेस्ट कर -->
+            <div id="adsterra_top_placeholder" style="color: var(--text-gray); font-size: 12px;">
+                📢 Advertisement Slot (Adsterra Code इथे टाका)
+                <!-- <script type="text/javascript"> ... तुझा कोड ... </script> -->
             </div>
         </div>
 
-        <!-- Ad Space for Adsterra -->
-        <div class="ad-container">
-            ADVERTISEMENT NETWORKS (Adsterra Code Field)
-        </div>
-
-        <!-- TRENDING CAPTIONS BLOCK -->
-        <div class="content-section">
-            <div class="section-heading">🎬 Trending Status Video Captions</div>
-            <div class="item-list" id="captions-grid">
-                <!-- Content injected here -->
+        <!-- स्टेटस आणि बायो सेक्शन्स -->
+        <div class="section-title">👑 VIP King Attitude Bio & Symbols</div>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-text">◢◣ 𝙆𝙞𝙣𝙜 𝙊𝙛 𝙈𝙮 𝙊𝙬𝙣 𝙒𝙤𝙧𝙡𝙙 ◢◣<br>🔥 𝙊𝙬𝙣 𝙍𝙪𝙡𝙚𝙨 𝙊𝙬𝙣 𝙇𝙞𝙛𝙚 🦅<br>👑 𝘽𝙖𝙣𝙟𝙖𝙧𝙖 𝘽𝙤𝙮 ✨<br>🎯 𝙑𝙄𝙋 𝘼𝙘𝙘𝙤𝙪𝙣𝙩 ◢◣</div>
+                <button class="btn-copy" onclick="copyStatus(this)">Copy Bio 📋</button>
+            </div>
+            <div class="status-card">
+                <div class="status-text">亗 『KING』 亗<br>☠️ 𝙉𝙖ਦ 𝙉𝙖𝙠𝙤 𝙆𝙖𝙧𝙪 𝙈𝙖𝙯𝙖 ☠️<br>🦁 𝙎𝙞𝙡𝙚𝙣𝙩 𝙀𝙮𝙚𝙨, 𝙎𝙝𝙖𝙧𝙥 𝙈𝙞𝙣𝙙 ⚡<br>👑 विषय एंड ⏳</div>
+                <button class="btn-copy" onclick="copyStatus(this)">Copy Bio 📋</button>
             </div>
         </div>
 
-        <footer>
-            &copy; 2026 Status Hub Pro | Designed Clean & Fast Like AI Tools
-        </footer>
+        <div class="section-title">🎵 Banjara Beats & Cinematic Status Lines</div>
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-text">💥 संस्कृती आपली, ओळख आपली! गोर बंजारोनी शान... 👑🔥 #BanjaraCulture #Beats</div>
+                <button class="btn-copy" onclick="copyStatus(this)">Copy Status 📋</button>
+            </div>
+            <div class="status-card">
+                <div class="status-text">🎸 बॉलीवुड तडका, बंजारा स्टाईल! लुक एकदम कडक, विषय ओक्के... 😎🎬 #BollywoodAesthetics</div>
+                <button class="btn-copy" onclick="copyStatus(this)">Copy Status 📋</button>
+            </div>
+            <div class="status-card">
+                <div class="status-text">🦅 रॉयल कारभार, स्वतःचा ब्रँड! जो नडला त्याला डायरेक्ट नॉकआऊट... ⚔️🔥 #AttitudeStatus</div>
+                <button class="btn-copy" onclick="copyStatus(this)">Copy Status 📋</button>
+            </div>
+        </div>
+
+        <!-- 💥 ADSTERRA BOTTOM AD SLOT (Banner 300x250 or Native Banner) -->
+        <div class="section-title">📢 Sponsored Links</div>
+        <div class="ad-slot-bottom">
+            <!-- खाली तुझा दुसरा Adsterra चा कोड पेस्ट कर -->
+            <div id="adsterra_bottom_placeholder" style="color: var(--text-gray); font-size: 12px;">
+                📢 Adsterra Native/Square Banner (इथे कोड टाका)
+                <!-- <script type="text/javascript"> ... तुझा कोड ... </script> -->
+            </div>
+        </div>
+
     </div>
 
+    <footer>
+        <p>© 2026 Sonu Digital Services. All Rights Reserved. 🔥</p>
+    </footer>
+
     <script>
-        const contentData = {
-            mr: [
-                "🔥 नाव गाजवायला वेळ लागतो, पण जेव्हा गाजतं ना तेव्हा विषयच क्लोज होतो!",
-                "😎 आपली जगण्याची पद्धत जरा वेगळी आहे, आम्ही नशिबावर नाही तर स्वतःवर विश्वास ठेवतो.",
-                "❤️ प्रेम तर सगळ्यांवरच होतं, पण तुझ्यावर झालेलं प्रेम काहीतरी वेगळंच आहे.",
-                "🦅 राजा सारखं जगायचं असेल तर आधी गुलामासारखी मेहनत करावी लागते!",
-                "💯 गर्दीत उभा राहणे हे माझे ध्येय नाही, तर ज्याच्यासाठी गर्दी उभी राहील तो मला व्हायचंय."
-            ],
-            bh: [
-                "📿 सेवालाल महाराज की जय! गोर बंजारा भाई तमारो रुबाब कडक छे.",
-                "🦅 आपण कोनी मालमत्ता कोनी, आपली बंजारा संस्कृती आपली शान छे!",
-                "🎵 बंजारा बीट्स वर गाणं वाजल की पाय थांबत कोनी भाऊ.",
-                "👑 गोर माटी री बोली, जग मा कती गोड लागे रे भाई!",
-                "🔥 आपण बंजारा छा, आपला रुबाब देखण दुनिया थर-थर कापे छे."
-            ],
-            hi: [
-                "🔥 हुकूमत वो नहीं जो डरा कर की जाए, हुकूमत वो है जो दिलों पर राज करे।",
-                "😎 हमारी शराफत का फायदा उठाना बंद कर दो, जिस दिन हम बदमाश हो गए कयामत आ जाएगी।",
-                "🦁 शेर अपना शिकार खुद करता है और हम अपना मुकाम खुद बनाते हैं।",
-                "🎲 वक्त वक्त की बात है भाऊ, आज आपका है उड़ लीजिए, कल हमारा आएगा तो सीधा उड़ा देंगे!",
-                "🤫 हम खामोश क्या हुए, पूरी दुनिया ने शोर मचा दिया।"
-            ],
-            en: [
-                "👑 Born to Rule, Not to Follow. Keeping it simple and classy.",
-                "⚡ Silence is the best response to a fool. Watch my success speak.",
-                "🎯 Focused on my goals, my vibe speaks louder than words.",
-                "🦁 Better to be a lonely lion than a popular sheep.",
-                "🔥 Your attitude dictates your growth. Keep it high profile."
-            ]
-        };
-
-        function changeLanguage(langCode) {
-            // Manage Active Button States
-            const links = document.querySelectorAll('.tab-link');
-            links.forEach(link => {
-                link.classList.remove('active');
-                if(link.innerText.toLowerCase().includes(langCode === 'mr' ? 'मराठी' : langCode === 'bh' ? 'बंजारा' : langCode === 'hi' ? 'हिंदी' : 'english')) {
-                    link.classList.add('active');
-                }
-            });
-
-            // Re-render Captions Box
-            const grid = document.getElementById('captions-grid');
-            grid.innerHTML = '';
+        // कॉपी करण्याचे सोपे लॉजिक
+        function copyStatus(button) {
+            var card = button.parentElement;
+            var text = card.querySelector('.status-text').innerHTML.replace(/<br\s*\/?>/mg, "\n");
             
-            contentData[langCode].forEach(captionText => {
-                const card = document.createElement('div');
-                card.className = 'item-card';
-                card.innerHTML = `<div class="item-text">${captionText}</div><button class="action-btn" onclick="triggerCopy(this)">Copy</button>`;
-                grid.appendChild(card);
-            });
+            // तात्पुरते टेक्स्टएरिया बनवून कॉपी करणे
+            var tempInput = document.createElement("textarea");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            // बटनचा लुक बदलणे
+            var originalText = button.innerText;
+            button.innerText = "Copied! ✔️";
+            button.style.backgroundColor = "#28a745";
+            
+            setTimeout(function(){
+                button.innerText = originalText;
+                button.style.backgroundColor = "var(--primary-red)";
+            }, 1500);
         }
-
-        function triggerCopy(btnElement) {
-            const textToCopy = btnElement.parentElement.querySelector('.item-text').innerText;
-            navigator.clipboard.writeText(textToCopy);
-            
-            const prevLabel = btnElement.innerText;
-            btnElement.innerText = "Copied! ✓";
-            btnElement.style.backgroundColor = var(--accent-color);
-            
-            setTimeout(() => {
-                btnElement.innerText = prevLabel;
-                btnElement.style.backgroundColor = "#334155";
-            }, 1200);
-        }
-
-        // Initialize Default View
-        changeLanguage('mr');
     </script>
 </body>
 </html>
